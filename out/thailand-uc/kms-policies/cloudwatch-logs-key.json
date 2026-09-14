@@ -1,0 +1,66 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Enable IAM User Permissions",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:root"
+        }
+      },
+      "Action": "kms:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Allow Key Administrator",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": {
+          "Ref": "KeyAdministratorArn"
+        }
+      },
+      "Action": [
+        "kms:Create*",
+        "kms:Describe*",
+        "kms:Enable*",
+        "kms:List*",
+        "kms:Put*",
+        "kms:Update*",
+        "kms:Revoke*",
+        "kms:Disable*",
+        "kms:Get*",
+        "kms:Delete*",
+        "kms:TagResource",
+        "kms:UntagResource",
+        "kms:ScheduleKeyDeletion",
+        "kms:CancelKeyDeletion"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Allow CloudWatch Logs Service",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": {
+          "Fn::Sub": "logs.${AWS::Region}.amazonaws.com"
+        }
+      },
+      "Action": [
+        "kms:Encrypt*",
+        "kms:Decrypt*",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*",
+        "kms:Describe*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ArnLike": {
+          "kms:EncryptionContext:aws:logs:arn": {
+            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
+          }
+        }
+      }
+    }
+  ]
+}

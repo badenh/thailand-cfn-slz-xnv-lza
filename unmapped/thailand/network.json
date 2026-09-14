@@ -1,0 +1,752 @@
+[
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "InternetGateway",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::InternetGateway \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "GatewayToInternet",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::VPCGatewayAttachment \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionPubARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionPubBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionPubCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionAPublicRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionBPublicRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionCPublicRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetRouteTableAssociationA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetRouteTableAssociationB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetRouteTableAssociationC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicNetworkAcl",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAcl \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "InboundHTTPPublicNetworkAclEntry",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "OutboundPublicNetworkAclEntry",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetNetworkAclAssociationA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetNetworkAclAssociationB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PublicSubnetNetworkAclAssociationC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "ElasticIPA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "ElasticIPB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "ElasticIPC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NATGatewayA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NATGatewayB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NATGatewayC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionASubnetRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionBSubnetRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionCSubnetRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternetA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternetB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternetC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternalNetworkInspectionARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternalNetworkInspectionBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "PrivateRouteToInternalNetworkInspectionCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachRouteTableAssociationA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachRouteTableAssociationB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachRouteTableAssociationC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteToInternetA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteToInternetB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteToInternetC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteTableAssociationA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteTableAssociationB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsRouteTableAssociationC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachBRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachCRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachRouteTableAssociationA",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachRouteTableAssociationB",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachRouteTableAssociationC",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionVPCFlowLog",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::FlowLog \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsVPCFlowLog",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::FlowLog \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "TransitGatewayRouteTableNetworkMainCoreNetworkInspectionAssocation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "TransitGatewayRouteTableNetworkMainCoreNetworkEndpointsAssocation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayRouteTableAssociation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "TransitGatewayRouteTableNetworkMainCoreNetworkEndpointsPropagation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayRouteTablePropagation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "TransitGatewayRouteTableNetworkMainSpokeNetworkEndpointsPropagation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayRouteTablePropagation \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "TransitGatewayRouteTableNetworkMainSpokeStaticRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayRoute \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkEndpointsTgwAttachment",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayAttachment \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "NetworkInspectionTgwAttachment",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::TransitGatewayAttachment \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-central-network.json",
+    "resource_id": "VPCInterfaceSecurityGroup",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SecurityGroup \u2014 LZA models this declaratively per-VPC/subnet",
+    "hint": "Hand-port routing/NACL wiring during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "DHCPOptions",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::DHCPOptions",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "VPCDHCPOptionsAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::VPCDHCPOptionsAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "InternetGateway",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::InternetGateway",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "VPCGatewayAttachment",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::VPCGatewayAttachment",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1ARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1ARoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1ARouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2ARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2ARoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2ARouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3ARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3ARoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3ARouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4ARouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4ARoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4ARouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BNetworkAcl",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAcl",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BNetworkAclEntryInbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BNetworkAclEntryOutbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet1BNetworkAclAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BNetworkAcl",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAcl",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BNetworkAclEntryInbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BNetworkAclEntryOutbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet2BNetworkAclAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BNetworkAcl",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAcl",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BNetworkAclEntryInbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BNetworkAclEntryOutbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet3BNetworkAclAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BRouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BNetworkAcl",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAcl",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BNetworkAclEntryInbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BNetworkAclEntryOutbound",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NetworkAclEntry",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PrivateSubnet4BNetworkAclAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetNetworkAclAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnetRouteTable",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::RouteTable",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnetRoute",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::Route",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnet1RouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnet2RouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnet3RouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "PublicSubnet4RouteTableAssociation",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::SubnetRouteTableAssociation",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NAT1EIP",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NAT2EIP",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NAT3EIP",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NAT4EIP",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::EIP",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NATGateway1",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NATGateway2",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NATGateway3",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "NATGateway4",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::NatGateway",
+    "hint": "Hand-port on spoke template during task #9 review"
+  },
+  {
+    "source": "lz-account-vpc-template.yaml",
+    "resource_id": "VPCFlowLogsToCloudWatch",
+    "reason": "[REWORK] SLZ CFN AWS::EC2::FlowLog",
+    "hint": "Hand-port on spoke template during task #9 review"
+  }
+]

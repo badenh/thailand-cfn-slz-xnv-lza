@@ -1,0 +1,111 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RCPEnforceConfusedDeputyProtection",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": [
+        "s3:*",
+        "sqs:*",
+        "secretsmanager:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:SourceOrgID": {
+            "Ref": "OrganizationId"
+          }
+        },
+        "Bool": {
+          "aws:PrincipalIsAWSService": "true"
+        }
+      }
+    },
+    {
+      "Sid": "EnforceS3TlsVersion",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "*",
+      "Condition": {
+        "NumericLessThan": {
+          "s3:TlsVersion": [
+            "1.2"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "RCPEnforceSTSOrganizationAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": [
+        "sts:AssumeRole",
+        "sts:SetContext"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:PrincipalIsAWSService": "false"
+        },
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalOrgID": {
+            "Ref": "OrganizationId"
+          }
+        }
+      }
+    },
+    {
+      "Sid": "RCPEnforceSQSOrganizationAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "sqs:*",
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:PrincipalIsAWSService": "false"
+        },
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalOrgID": {
+            "Ref": "OrganizationId"
+          }
+        }
+      }
+    },
+    {
+      "Sid": "RCPEnforceKMSOrganizationAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "kms:*",
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:PrincipalIsAWSService": "false"
+        },
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalOrgID": {
+            "Ref": "OrganizationId"
+          }
+        }
+      }
+    },
+    {
+      "Sid": "RCPEnforceSecretsManagerOrganizationAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "secretsmanager:*",
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:PrincipalIsAWSService": "false"
+        },
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalOrgID": {
+            "Ref": "OrganizationId"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# LZA V2 replacements — inline String/Number values. Reviewer must
+# replace TODO-*@example.com email placeholders before deploy.
+# AcceleratorPrefix + HomeRegion are profile-specific defaults.
+
+globalReplacements:
+- key: AcceleratorPrefix
+  type: String
+  value: THSLZ
+- key: HomeRegion
+  type: String
+  value: ap-southeast-7
+- key: TransitGatewayASN
+  type: Number
+  value: 65001
+- key: ManagementEmail
+  type: String
+  value: TODO-management@example.com
+- key: LogArchiveEmail
+  type: String
+  value: TODO-logarchive@example.com
+- key: AuditEmail
+  type: String
+  value: TODO-audit@example.com
+- key: SharedServicesEmail
+  type: String
+  value: TODO-sharedservices@example.com
+- key: CentralBackupEmail
+  type: String
+  value: TODO-centralbackup@example.com
+- key: NetworkEmail
+  type: String
+  value: TODO-network@example.com

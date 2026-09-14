@@ -1,0 +1,12 @@
+[
+  {
+    "sessionManager": {
+      "sendToCloudWatchLogs": true,
+      "sendToS3": true,
+      "idleTimeoutMinutes": 20,
+      "maxSessionDurationMinutes": 60,
+      "runAsDefaultUser": null,
+      "attachPolicyToIamRoles": []
+    }
+  }
+]

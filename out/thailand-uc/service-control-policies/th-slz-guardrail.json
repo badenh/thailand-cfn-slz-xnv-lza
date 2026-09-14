@@ -1,0 +1,229 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyMemberAccountsLeavingOrganization",
+      "Effect": "Deny",
+      "Action": [
+        "organizations:LeaveOrganization"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyIAMCreateUserAndKeys",
+      "Effect": "Deny",
+      "Action": [
+        "iam:AddUserToGroup",
+        "iam:CreateGroup",
+        "iam:CreateLoginProfile",
+        "iam:CreateUser",
+        "iam:DeleteGroup",
+        "iam:DeleteUser",
+        "iam:RemoveUserFromGroup",
+        "iam:UpdateGroup",
+        "iam:UpdateUser",
+        "iam:CreateAccessKey",
+        "iam:UpdateAccessKey",
+        "iam:DeleteAccessKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:PrincipalArn": [
+            "arn:aws:iam::*:role/AWSControlTowerExecution"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyCreateRDSwithoutEncryption",
+      "Effect": "Deny",
+      "Action": [
+        "rds:CreateDBInstance",
+        "rds:CreateDBCluster"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "ForAnyValue:BoolIfExists": {
+          "rds:StorageEncrypted": "false"
+        }
+      }
+    },
+    {
+      "Sid": "DenyCreateEFSwithoutEncryption",
+      "Effect": "Deny",
+      "Action": [
+        "elasticfilesystem:CreateFileSystem"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "ForAnyValue:BoolIfExists": {
+          "elasticfilesystem:Encrypted": "false"
+        }
+      }
+    },
+    {
+      "Sid": "DenyCreatePubliclyAccessibleEFS",
+      "Effect": "Deny",
+      "Action": [
+        "elasticfilesystem:CreateFileSystem",
+        "elasticfilesystem:UpdateFileSystem",
+        "elasticfilesystem:ClientWrite",
+        "elasticfilesystem:ClientRootAccess"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "ForAnyValue:BoolIfExists": {
+          "elasticfilesystem:AccessedViaMountTarget": "false"
+        }
+      }
+    },
+    {
+      "Sid": "DenyPublicOpenSearchDomains",
+      "Effect": "Deny",
+      "Action": [
+        "es:CreateDomain",
+        "es:UpdateDomainConfig"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Bool": {
+          "es:VPCEnabled": "false"
+        }
+      }
+    },
+    {
+      "Effect": "Deny",
+      "Action": [
+        "ec2:DisableEbsEncryptionByDefault"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Deny",
+      "Action": "ec2:CreateVolume",
+      "Resource": "*",
+      "Condition": {
+        "Bool": {
+          "ec2:Encrypted": "false"
+        }
+      }
+    },
+    {
+      "Sid": "PreventEc2MountUnencryptedVolume",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:volume/*",
+      "Condition": {
+        "Bool": {
+          "ec2:Encrypted": "false"
+        }
+      }
+    },
+    {
+      "Sid": "PreventPublicBucketACL",
+      "Effect": "Deny",
+      "Action": [
+        "s3:PutBucketAcl",
+        "s3:CreateBucket"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": [
+            "public-read",
+            "public-read-write"
+          ]
+        },
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalTag/identity-perimeter-exception": "true"
+        }
+      }
+    },
+    {
+      "Sid": "PreventS3PublicAccessBlockConfigurations",
+      "Effect": "Deny",
+      "Action": "s3:PutAccountPublicAccessBlock",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:PrincipalTag/identity-perimeter-exception": "true"
+        }
+      }
+    },
+    {
+      "Sid": "PreventDisableAMISnapshotPublicAccess",
+      "Action": [
+        "ec2:DisableImageBlockPublicAccess",
+        "ec2:DisableSnapshotBlockPublicAccess"
+      ],
+      "Resource": "*",
+      "Effect": "Deny"
+    },
+    {
+      "Sid": "DenyCreatingDataResourcesUSEast1",
+      "Action": [
+        "ec2:Create*",
+        "ec2:Modify*",
+        "ec2:Attach*",
+        "ec2:Authorize*",
+        "ec2:Disassociate*",
+        "ec2:Delete*",
+        "ec2:Accept*",
+        "ec2:Run*",
+        "ec2:Revoke*",
+        "ec2:Start*",
+        "ec2:Authorize*",
+        "ec2:Revoke*",
+        "ebs:*",
+        "rds:*",
+        "elasticfilesystem:*",
+        "es:*",
+        "storagegateway:*"
+      ],
+      "Resource": "*",
+      "Effect": "Deny",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        },
+        "StringNotEquals": {
+          "aws:PrincipalTag/identity-perimeter-exception": "true"
+        },
+        "StringNotLike": {
+          "aws:PrincipalArn": "arn:aws:iam::*:role/AWSControlTowerExecution"
+        }
+      }
+    },
+    {
+      "Sid": "DenyMultiRegionKMSKey",
+      "Effect": "Deny",
+      "Resource": "*",
+      "Action": [
+        "kms:CreateKey"
+      ],
+      "Condition": {
+        "ForAnyValue:BoolIfExists": {
+          "kms:MultiRegion": "true"
+        }
+      }
+    },
+    {
+      "Sid": "RequireImdsV2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEquals": {
+          "ec2:MetadataHttpTokens": "required"
+        }
+      }
+    }
+  ]
+}

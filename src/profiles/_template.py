@@ -1,0 +1,93 @@
+"""Template profile for a new source-LZ conversion.
+
+Copy this file to `<name>.py`, fill in the constants, then run:
+
+    python -m converter.src.run --profile <name>
+
+Every constant below is consumed by one or more mappers. Grep `..profile`
+imports across `mappers/*.py` to see which mapper uses which constant.
+
+Missing a constant will raise ImportError at first mapper invocation —
+add it here and re-run.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+
+# -------- Profile identity + paths ----------------------------------------
+
+PROFILE_NAME = "TEMPLATE"                       # short slug used in log lines
+SOURCE_LZ_NAME = "TEMPLATE-source-lz-repo"     # source repo directory name
+SOURCE_DIR = _REPO_ROOT / SOURCE_LZ_NAME / "cloudformation"
+OUT_DIR = _REPO_ROOT / "converter" / "out" / f"{PROFILE_NAME}-uc"
+UNMAPPED_DIR = _REPO_ROOT / "converter" / "unmapped" / PROFILE_NAME
+REPORTS_DIR = _REPO_ROOT / "converter" / "reports" / PROFILE_NAME
+
+# -------- Global constants -------------------------------------------------
+
+ACCELERATOR_PREFIX = "TEMPL"                    # short prefix for LZA-owned names
+HOME_REGION = "us-east-1"                       # customer's home region
+ENABLED_REGIONS = [HOME_REGION, "us-east-1"]    # + any pinned regions (FMS etc)
+MANAGEMENT_ACCOUNT_ACCESS_ROLE = "AWSControlTowerExecution"
+
+# -------- Org domain -------------------------------------------------------
+
+# Map each source CFN file (by role) to its filename inside SOURCE_DIR.
+ORG_SOURCES = {
+    "ou_tree": "<source-org-template>.json",
+    "scp_guardrails": "<scp-guardrails-template>.json",
+    "scp_approved_services": "<scp-approved-services-template>.json",
+    "rcp_guardrails": "<rcp-guardrails-template>.json",
+    "ai_optout": "<ai-optout-template>.json",
+}
+
+# Default deployment targets when the source LZ passes targets at runtime.
+DEFAULT_SCP_TARGET_OUS = ["Infrastructure", "Security", "Workloads"]
+DEFAULT_RCP_TARGET_OUS = list(DEFAULT_SCP_TARGET_OUS)
+DECLARATIVE_EC2_TARGET_OUS = ["Root"]
+AI_OPTOUT_TARGET = "Root"
+
+# -------- Security domain --------------------------------------------------
+
+SECURITY_SOURCES = {
+    "baseline": "<account-baseline-template>.yaml",
+    "guardduty": "<guardduty-template>.yaml",
+    "guardduty_notify": "<guardduty-notify-template>.yaml",
+    "ss_delegation": "<security-services-delegation-template>.yaml",
+    "fms_ipam": "<fms-ipam-delegation-template>.yaml",
+    "access_analyzer": "<access-analyzer-template>.json",
+    "org_kms": "<org-kms-template>.json",
+}
+DELEGATED_SECURITY_ADMIN = "Audit"
+
+# -------- IAM domain -------------------------------------------------------
+
+IAM_SOURCES = {
+    "idc_permission_sets": "<idc-permission-sets-template>.json",
+}
+IDENTITY_CENTER_NAME = "identityCenter1"
+IDENTITY_CENTER_DELEGATED_ADMIN: str | None = None  # None = leave engine default
+
+# -------- Network domain ---------------------------------------------------
+
+NETWORK_SOURCES = {
+    "central": "<central-network-template>.json",
+    "spoke": "<account-vpc-template>.yaml",
+}
+NETWORK_ACCOUNT = "Network"
+SPOKE_VPC_TARGET_OUS = ["Infrastructure", "Workloads"]
+TGW_ASN = 65001
+
+# -------- Accounts ---------------------------------------------------------
+
+MANDATORY_ACCOUNTS = [
+    ("Management", "Root", "AWS Organizations management account"),
+    ("LogArchive", "Security", "Control Tower log archive account"),
+    ("Audit", "Security", "Control Tower audit account"),
+]
+WORKLOAD_ACCOUNTS = [
+    # Add customer-specific workload accounts inferred from source LZ.
+    # ("SharedServices", "Infrastructure", "Shared operations"),
+]
