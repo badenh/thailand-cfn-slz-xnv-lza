@@ -1,4 +1,4 @@
-# SLZ → LZA UC converter
+# SLZ → LZA UC converter for Thailand
 
 Convert CloudFormation-native Landing Zone samples (like
 `aws-samples/sample-thailand-secure-lz`) into a Landing Zone Accelerator
